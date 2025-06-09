@@ -28,6 +28,39 @@ var choiceMenu = AnsiConsole.Prompt(
             "Delete Contact"
         }));
 
+
+switch (choiceMenu)
+{
+    case "Show contacts":
+        var contacts = db.Contacts
+            .OrderBy(i => i.Id);
+        foreach (var c in contacts)
+        {
+            Console.WriteLine($"Id: {c.Id}, Name: {c.Name}, Email: {c.Email}, Phone: {c.PhoneNumber}");
+        }
+
+        break;
+    case "Add Contact":
+        Console.WriteLine("Name: ");
+        var name = Console.ReadLine();
+        Console.WriteLine("Email: ");
+        var email = Console.ReadLine();
+        Console.WriteLine("Phonenumber: ");
+        var phonenumber = Console.ReadLine();
+
+        // shorthand for if null, give assing this value.
+        name ??= "InvalidName";
+        email ??= "InvalidEmail";
+
+        db.Contacts.Add(new Contact(name, email, phonenumber));
+        await db.SaveChangesAsync();
+        break;
+    case "Edit Contact":
+        break;
+    case "Delete Contact":
+        break;
+}
+
 // Reusable methods
 string ValidatePhoneNumber(string phoneNumber)
 {
