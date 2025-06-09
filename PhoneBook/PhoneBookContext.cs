@@ -26,9 +26,9 @@ public class Contact
     [MaxLength(50)]
     public string Email { get; set; }
     [MaxLength(15)]
-    public string? PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; }
 
-    public Contact(string name, string email, string? phoneNumber)
+    public Contact(string name, string email, string phoneNumber)
     {
         Name = name;
         Email = email;
