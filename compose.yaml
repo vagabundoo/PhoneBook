@@ -1,0 +1,7 @@
+﻿services:
+  phonebook:
+    image: phonebook
+    build:
+      context: .
+      dockerfile: PhoneBook/Dockerfile
+
