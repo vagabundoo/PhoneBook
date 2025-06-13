@@ -34,6 +34,14 @@ switch (choiceMenu)
     case "Show contacts":
         var contacts = db.Contacts
             .OrderBy(i => i.Id);
+        AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Choose a contact to edit:")
+                .AddChoices(new[]
+                {
+                    
+                })
+        
         foreach (var c in contacts)
         {
             Console.WriteLine($"Id: {c.Id}, Name: {c.Name}, Email: {c.Email}, Phone: {c.PhoneNumber}");
@@ -48,36 +56,19 @@ switch (choiceMenu)
         Console.WriteLine("Phonenumber: ");
         var phonenumber = Console.ReadLine();
 
-        // shorthand for if null, give assing this value.
+        // shorthand for if null, assign this value.
         name ??= "InvalidName";
         email ??= "InvalidEmail";
 
         db.Contacts.Add(new Contact(name, email, phonenumber));
         await db.SaveChangesAsync();
         break;
+    // Add a wat to search for contacts and edit or delete them.
     case "Edit Contact":
         break;
     case "Delete Contact":
         break;
 }
-
-// Reusable methods
-string ValidatePhoneNumber(string phoneNumber)
-{
-    if (phoneNumber.Length == 0) 
-        return "No phone number provided";
-    if (phoneNumber.Length != 9) 
-        return "Phone number length must be 9 characters";
-    if (!int.TryParse(phoneNumber, out _))
-        return "Phone number is not a number";
-    return "Valid phone number";
-}
-
-bool ValidateEmail()
-{
-    return false;
-}
-
 
 //
 // Test CRUD operations
