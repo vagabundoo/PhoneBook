@@ -39,8 +39,8 @@ switch (choiceMenu)
                 .Title("Choose a contact to edit:")
                 .AddChoices(new[]
                 {
-                    
-                })
+                    "test", "test2"
+                }));
         
         foreach (var c in contacts)
         {

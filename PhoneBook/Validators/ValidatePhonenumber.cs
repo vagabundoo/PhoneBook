@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace PhoneBook.Models;
+namespace PhoneBook.Validators;
 
 public class ValidatePhoneNumber(string phoneNumber)
 {
