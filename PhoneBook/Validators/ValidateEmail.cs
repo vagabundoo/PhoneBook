@@ -5,31 +5,27 @@ namespace PhoneBook.Validators;
 public class ValidateEmail(string email)
 {
     private string Email { get; } = email;
-    private readonly string _allowedCharacters = "[a-zA-Z0-9_.+-]";
+    private readonly Regex _allowedCharacters = new Regex("^[a-zA-Z0-9_.+-@]*$");
     private readonly string _allowedDomains = "com|nl|net|es|fr";
     
     // Methods for Validation rules
-    bool IsNonEmptyString()
+    public bool IsNonEmptyString()
     {
         return !string.IsNullOrEmpty(Email);
     }
 
-    bool OnlyHasAllowedCharacters()
+    public bool OnlyHasAllowedCharacters()
     {
-        var match = Regex.Match(Email, $"{_allowedCharacters}*");
-        return match.Success;   
+        var match = _allowedCharacters.IsMatch(Email);
+        return match;   
     }
 
-    bool HasValidFormat()
+    public bool HasValidFormat()
     {
-        var pattern = Regex.Escape(_allowedCharacters) 
-                      + "@" 
-                      + Regex.Escape(_allowedCharacters) 
-                      + "." 
-                      + Regex.Escape(_allowedDomains)
-                      + Regex.Escape("$");
-        
-        return Regex.IsMatch(Email, pattern);
+        var allowedFormat = new Regex(@".*@.+\..+");
+        var match = allowedFormat.IsMatch(Email);
+
+        return match;
     }
     
     

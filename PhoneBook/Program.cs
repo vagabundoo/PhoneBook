@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using PhoneBook.Validators;
 using Spectre.Console;
 
 var db = new PhoneBookContext();
@@ -59,6 +60,14 @@ switch (choiceMenu)
         // shorthand for if null, assign this value.
         name ??= "InvalidName";
         email ??= "InvalidEmail";
+        
+        // Validate the input
+        var validatedEmail = new ValidateEmail(email);
+        if (validatedEmail.IsValid().Item1 == false)
+            AnsiConsole.MarkupLine($"[red]{validatedEmail.IsValid().Item2}[/]");
+        var validatedPhonenumber = new ValidatePhoneNumber(phonenumber);
+        if (validatedPhonenumber.IsValid().Item1 == false)
+            AnsiConsole.MarkupLine($"[red]{validatedPhonenumber.IsValid().Item2}[/]");
 
         db.Contacts.Add(new Contact(name, email, phonenumber));
         await db.SaveChangesAsync();

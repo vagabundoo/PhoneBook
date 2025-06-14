@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.UnitTests", "PhoneBook.UnitTests\PhoneBook.UnitTests.csproj", "{A0168BA8-79D8-4718-80F2-0A812E2144C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +19,9 @@ Global
 		{9AD3099E-EC6B-434D-AC61-B0C0A5417547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD3099E-EC6B-434D-AC61-B0C0A5417547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD3099E-EC6B-434D-AC61-B0C0A5417547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0168BA8-79D8-4718-80F2-0A812E2144C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0168BA8-79D8-4718-80F2-0A812E2144C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0168BA8-79D8-4718-80F2-0A812E2144C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0168BA8-79D8-4718-80F2-0A812E2144C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
