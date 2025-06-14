@@ -1,4 +1,7 @@
-## Requirements
+### Simple phonebook application, following thecsharpacademy. 
+https://www.thecsharpacademy.com/project/16/phonebook
+
+Requirements
 - This is an application where you should record contacts with their phone numbers.
 - Users should be able to Add, Delete, Update and Read from a database, using the console.
 - You need to use Entity Framework, raw SQL isn't allowed.
